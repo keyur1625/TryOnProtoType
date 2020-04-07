@@ -1,0 +1,263 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Try On</title>
+    <link type="text/css" href="{% static "css/styles.css" %}" rel="stylesheet">
+    <link type="images/x-icon" href="{% static "images/Media/Tryon Icon.png" %}" rel="icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    {{ title }}
+{#    {% block blk %}#}
+{#    {% endblock %}#}
+    <script src="{% static "JS/script.js" %}"></script>
+</body>
+</html> -->
+{% load static%}
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Add product | Vendor site admin</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/vendorbase.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/vendorforms.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+  
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vendorresponsive.css' %}">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+<style>
+    .fixedbutton {
+        position: fixed;
+        bottom: 50%;
+        right: 87%; 
+        margin-bottom :25px;
+    }
+</style>
+</head>
+
+
+<body class=" app-dp model-destination change-form"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">Vendor administration</a></h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Welcome,
+                <strong></strong>.
+       
+               <!-- <a href="/admin/password_change/">Change password</a> -->
+                
+                <a href="/admin/logout/">Log out</a>
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+<div class="breadcrumbs">
+<a href="/admin/">Home</a>
+
+
+&rsaquo; Add Product
+</div>
+
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1>Add Product</h1>
+        <div id="content-main">
+
+
+
+<form enctype="multipart/form-data" action="" method="post" id="destination_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="3fRUORXJSk9WMFVjBBz7sQ58mSp3ZVRkbSV7BFWi4nRm31aI87svTHrHS7MY5TRI">
+{% csrf_token %}
+    <div>
+  <fieldset class="module aligned ">
+        <div class="form-row field-name">
+                <div>
+                   
+                          <label class="required" for="id_name">Vender ID:</label>
+                              {{form.vendor_id}}
+                              <!-- <input type="text" name="name" class="vTextField" maxlength="30" required id="id_name">  -->
+                  
+                  </div>
+              
+          </div>
+      <div class="form-row field-name">
+              <div>
+                 
+                        <label class="required" for="id_name">Brand:</label>
+                            {{form.brand}}
+                            <!-- <input type="text" name="name" class="vTextField" maxlength="30" required id="id_name">  -->
+                
+                </div>
+            
+        </div>
+         <div class="form-row field-name">
+            <div>
+                    
+               <label class="required" for="id_category">Category:</label>
+                        {{form.category}}
+                            <!-- <input type="text" name="category" class="vTextField" maxlength="30" required id="id_category"> -->
+                                   
+                </div>
+            
+        </div>
+         <div class="form-row field-name">
+  
+                <div>
+                 <label class="required" for="id_subcategory">Sub category:</label>
+                        {{form.sub_category}}
+                            <!-- <input type="text" name="subcategory" class="vTextField" maxlength="30" required id="id_subcategory"> -->
+              
+                </div>  
+        </div>
+       <div class="form-row field-img">
+            <div>
+                 <label class="required" for="id_img">Img:</label>
+                        <div id="product_images">
+                            {{form1.image}}
+                            <!-- <input type="file" class="productimages" name="img" accept="image/*" required id="id_img0"> -->
+                        </div>
+                       <button id="addimage" class="fixedbutton" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button> 
+          </div>
+        
+        </div>
+    
+        <div class="form-row field-desc">
+            
+              <div>
+                    
+                    
+                        <label class="required" for="id_desc">Desc:</label>
+                        {{form.description}}
+                            <!-- <textarea name="desc" cols="40" rows="10" class="vLargeTextField" required id="id_desc"> -->
+<!-- </textarea> -->             
+                    
+                </div>
+            
+        </div>
+        <div class="form-row field-img">
+                <div>
+                     <label class="required" for="id_img">Type:</label>
+                            <div id="product_images">
+                                {{form.type}}
+                                <!-- <input type="file" class="productimages" name="img" accept="image/*" required id="id_img0"> -->
+                            </div>
+                           <button id="addimage" class="fixedbutton" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button> 
+              </div>
+            
+            </div>
+        
+        <div class="form-row field-price">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_price">Price:</label>
+                        {{form.price}}
+                            <!-- <input type="number" name="price" class="vIntegerField" required id="id_price"> -->
+                        
+                    
+                    
+                </div>
+            
+        </div>
+        
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_material">Material:</label>
+                        {{form.material}}
+                            <!-- <input type="number" name="material" class="vIntegerField" required id="id_material"> -->
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        
+        </div>
+    
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row"><input type="submit" value="Save" class="default" name="_save">
+
+</div>
+
+
+<!-- <input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue"> -->
+
+
+</div>
+
+
+
+   
+
+    
+
+
+
+</div>
+</form></div>
+
+        
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>
